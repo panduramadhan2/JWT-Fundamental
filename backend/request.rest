@@ -1,15 +1,17 @@
+
 GET http://localhost:5000/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJNLkZpa3JpIiwiZW1haWwiOiJlbWFpbEBnbWFpbC5jb20iLCJpYXQiOjE3MDcyODkzNDUsImV4cCI6MTcwNzI4OTM2MH0.2a1XxnQ8O5rCMSdbTpNphQ9lZjwEFQGwgQS6ofLJ-KU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsIm5hbWUiOiJ0ZXN0ZXIiLCJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiaWF0IjoxNzA3NjMyNTk0LCJleHAiOjE3MDc2MzI2MjR9.S93BFkW4FbrdaGIaEuhr6r3iIW3AaB54RnLBErlyo64
 
 ### membuat user baru
 POST http://localhost:5000/users
 Content-Type: application/json
 
+
 {
-    "name": "M.Fikri",
-    "email": "email@gmail.com",
-    "password": "123456",
-    "confirmPassword": "123456"
+    "name": "M.Fikri1",
+    "email": "email1@gmail.com",
+    "password": "123456789",
+    "confirmPassword": "123456789"
 }
 
 ### membuat user baru
@@ -22,14 +24,24 @@ Content-Type: application/json
     "password": "1234567",
     "confirmPassword": "1234567"
 }
+### membuat user baru
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "name": "tester",
+    "email": "test@gmail.com",
+    "password": "12345678",
+    "confirmPassword": "12345678"
+}
 
 ### login user
 POST http://localhost:5000/login
 Content-Type: application/json
 
 {
-    "email": "email@gmail.com",
-    "password": "123456"
+    "email": "email1@gmail.com",
+    "password": "123456789"
 }
 
 ### login user
@@ -39,6 +51,14 @@ Content-Type: application/json
 {
     "email": "pandu@gmail.com",
     "password": "1234567"
+}
+### login user
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email": "test@gmail.com",
+    "password": "12345678"
 }
 
 ### refresh token

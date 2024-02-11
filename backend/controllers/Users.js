@@ -5,7 +5,6 @@ import jwt from "jsonwebtoken";
 export const getUsers = async (req, res) => {
   try {
     const users = await Users.findAll({
-      //Untuk menyeleksi apa saja yang ingin di kirimkan ke client
       attributes: ["id", "name", "email"],
     });
     res.json(users);
@@ -50,7 +49,7 @@ export const Login = async (req, res) => {
     const accessToken = jwt.sign(
       { userId, name, email },
       process.env.ACCESS_TOKEN_SECRET,
-      { expiresIn: "20s" }
+      { expiresIn: "1d" }
     );
     const refreshToken = jwt.sign(
       { userId, name, email },
@@ -68,7 +67,7 @@ export const Login = async (req, res) => {
     res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
       maxAge: 24 * 60 * 60 * 1000,
-      //   secure: true
+      // secure: true,
       // jika ingin menggunakan https
     });
     res.json({ accessToken });
