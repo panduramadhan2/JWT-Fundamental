@@ -49,7 +49,8 @@ export const Login = async (req, res) => {
     const accessToken = jwt.sign(
       { userId, name, email },
       process.env.ACCESS_TOKEN_SECRET,
-      { expiresIn: "1d" }
+      //konfigurasi lama expiresnya biasanya 15 detik untuk agar secure di gunakan untuk endpoint yang butuh veryToken
+      { expiresIn: "15s" }
     );
     const refreshToken = jwt.sign(
       { userId, name, email },
@@ -67,8 +68,8 @@ export const Login = async (req, res) => {
     res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
       maxAge: 24 * 60 * 60 * 1000,
-      // secure: true,
       // jika ingin menggunakan https
+      secure: true,
     });
     res.json({ accessToken });
   } catch (error) {
